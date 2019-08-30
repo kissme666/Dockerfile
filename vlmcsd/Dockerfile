@@ -1,10 +1,11 @@
 # Author: Air
 # Practice version 1.0
 # Time: 2019.06.08
+# Update:2019.8.30
 
 FROM debian:latest
 
-ENV KMS_BIN_URL https://github.com/Wind4/vlmcsd/releases/download/svn1112/binaries.tar.gz
+ENV KMS_BIN_URL=https://github.com/Wind4/vlmcsd/releases/download/svn1112/binaries.tar.gz
 
 ENV BIN_NAME=binaries.tar.gz
 
@@ -20,6 +21,7 @@ RUN apt-get -y update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \ 
     && rm -rf /kms/temp
 
+# Exposing port 1688/tcp during run
 EXPOSE 1688
 
 CMD ["./vlmcsdmulti-x64-musl-static", "vlmcsd", "-D"]
