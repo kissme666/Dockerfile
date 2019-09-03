@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  vlmcsd:
+    image: evildocker/kms
+    ports:
+    - "1688:1688"
+    restart: always
